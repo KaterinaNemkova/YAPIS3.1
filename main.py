@@ -20,14 +20,14 @@ def main(input_file):
         print(f"Файл {input_file} не найден.")
         return
 
-    # 2. Лексический анализ (разбиение на токены)
+    #Лексический анализ (разбиение на токены)
     lexer = RelationalLangLexer(input_stream)
     lexer_error_listener = MyErrorListener()
     lexer.removeErrorListeners()
     lexer.addErrorListener(lexer_error_listener)
     stream = CommonTokenStream(lexer)
 
-    # 2. Синтаксический анализ
+    #Синтаксический анализ
     parser = RelationalLangParser(stream)
     parser_error_listener = MyErrorListener()
     parser.removeErrorListeners()
@@ -43,6 +43,7 @@ def main(input_file):
         return
     print("Синтаксис: OK")
 
+    #Семантический анализ
     semantic_visitor = SemanticVisitor()
     semantic_visitor.visit(tree)
 
