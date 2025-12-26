@@ -248,12 +248,35 @@ class CodeGenVisitor(RelationalLangVisitor):
 
     def visitFuncCallExpr(self, ctx):
         func_name = ctx.ID().getText()
+
+        if func_name == "insert_row":
+            table_arg = self.visit(ctx.exprList().expr(0))
+            row_literal = ctx.exprList().expr(1)  # { ... }
+
+            self.builder.call(self.row_init, [])
+
+            if row_literal.exprList():
+                for val_ctx in row_literal.exprList().expr():
+                    val_ir = self.visit(val_ctx)
+
+                    if val_ir.type == self.int_type:
+                        self.builder.call(self.row_add_int, [val_ir])
+                    elif val_ir.type == self.float_type:
+                        self.builder.call(self.row_add_float, [val_ir])
+                    elif val_ir.type == self.string_type:
+                        self.builder.call(self.row_add_string, [val_ir])
+
+            return self.builder.call(self.insert_row_commit, [table_arg])
+
         args = []
         if ctx.exprList():
             for e in ctx.exprList().expr():
                 args.append(self.visit(e))
 
         if func_name == "write":
+            if not args:
+                return ir.Constant(self.int_type, 0)
+
             arg = args[0]
             if arg.type == self.string_type:
                 return self.builder.call(self.print_str, [arg])
