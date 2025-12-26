@@ -1,0 +1,18 @@
+struct DataProcessor is
+    tableName : string
+
+    method process(ref table t)
+        write("Processing...")
+    end method
+end struct
+
+sub initialize_database(ref table db)
+    db = create_table("Employees")
+    insert_row(db, {1, "Ivan", 50000.0, "IT"})
+end sub
+
+company_db = create_table("Empty")
+initialize_database(company_db)
+
+processor = new DataProcessor()
+processor.process(company_db)

@@ -1,0 +1,14 @@
+struct User is
+    id : int
+    name : string
+end struct
+
+sub process_user()
+    u = new User()
+
+    // СЕМАНТИЧЕСКАЯ ОШИБКА: У User нет поля 'email'
+    u.email = "test@mail.com"
+
+    // СИНТАКСИЧЕСКАЯ ОШИБКА: Опечатка в слове return (retur)
+    retur
+end sub

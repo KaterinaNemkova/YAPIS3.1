@@ -1,0 +1,17 @@
+struct BrokenStruct is
+    name : string
+    // ОШИБКА 1: Забыли 'end method'
+    method badMethod()
+        write("I am broken")
+
+end struct
+
+sub main()
+    // ОШИБКА 2: Опечатка в ключевом слове (fnc вместо func или пропущенное присваивание)
+    val == 10
+
+    // ОШИБКА 3: Пропущено двоеточие в if
+    if val > 5
+        write("Big")
+    end if
+end sub

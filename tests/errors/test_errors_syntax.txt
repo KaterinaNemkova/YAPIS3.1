@@ -1,0 +1,19 @@
+sub broken_logic()
+    x = 10
+    y = 20
+
+    // ОШИБКА 1: Пропущено двоеточие ':' после условия
+    if x > y
+        write("X is bigger")
+    end if
+
+    // ОШИБКА 2: Использовано слово 'function' вместо 'sub' или 'method'
+    function test()
+        return 0
+    end function
+
+    // ОШИБКА 3: Пропущено ключевое слово 'in' в цикле
+    for row r my_table :
+        write(r)
+    end for
+end sub

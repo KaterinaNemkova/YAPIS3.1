@@ -1,0 +1,13 @@
+struct User is
+    age : int
+end struct
+
+sub main()
+    u = new User()
+
+    // ОШИБКА: Присваивание строки в int
+    u.age = "Too old"
+
+    // ОШИБКА: Поле не существует
+    u.salary = 1000
+end sub

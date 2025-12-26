@@ -1,0 +1,25 @@
+sub analyze_departments(ref table deps)
+    threshold = 100000.0
+
+    for row d in deps :
+        current_budget = d.budget
+
+        if current_budget > threshold :
+            write("Rich department: ", d.name)
+
+            // Вложенный цикл (например, по сотрудникам отдела)
+            employees = d.employees
+            for row emp in employees :
+                if emp.salary > 5000.0 :
+                    write("  High earner: ", emp.name)
+                end if
+            end for
+
+        else :
+            write("Standard department: ", d.name)
+        end if
+    end for
+end sub
+
+my_table = create_table("Departments")
+analyze_departments(my_table)

@@ -1,0 +1,9 @@
+sub analyze_data(ref table t)
+    // СИНТАКСИЧЕСКАЯ ОШИБКА: Пропущено слово 'in'
+    for row r t :
+        write(r.name)
+    end for
+
+    // СЕМАНТИЧЕСКАЯ ОШИБКА: Переменная 'count' не объявлена
+    count = count + 1
+end sub

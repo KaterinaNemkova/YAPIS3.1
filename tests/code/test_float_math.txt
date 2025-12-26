@@ -1,0 +1,17 @@
+val_1 = 10.5
+val_2 = 4.5
+
+// Сложение
+sum = val_1 + val_2
+write("Sum (15.00):")
+write(sum)
+
+// Вычитание
+diff = val_1 - val_2
+write("Diff (6.00):")
+write(diff)
+
+// Сложное выражение
+res = val_1 + val_2 * 2.0
+write("Complex (19.50):")
+write(res)

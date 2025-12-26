@@ -1,0 +1,11 @@
+sub calculate()
+    x = 10
+end sub
+
+sub main()
+    // ОШИБКА: x видна только в calculate
+    y = x + 5
+
+    // ОШИБКА: Неизвестная структура
+    p = new UnknownStruct()
+end sub

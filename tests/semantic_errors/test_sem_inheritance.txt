@@ -1,0 +1,16 @@
+struct Animal is
+    name : string
+end struct
+
+struct Dog extends Animal is
+    breed : string
+end struct
+
+sub main()
+    d = new Dog()
+    d.name = "Buddy"  // Это ОК (от родителя)
+    d.breed = "Pug"   // Это ОК (свое)
+
+    // ОШИБКА: Такого поля нет ни у Dog, ни у Animal
+    d.wings = 2
+end sub

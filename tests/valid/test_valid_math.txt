@@ -1,0 +1,28 @@
+struct Calculator is
+    multiplier : float
+
+    method init(float m)
+        self.multiplier = m
+    end method
+
+    method compute(int a, int b)
+        res = a + b * self.multiplier
+        return res
+    end method
+end struct
+
+calc = new Calculator()
+calc.init(1.5)
+
+val_1 = 10
+val_2 = 20
+
+float_val = (float) val_1
+
+result = calc.compute(val_1, val_2)
+
+if result >= 40.0 :
+    write("Result is large: ", result)
+else :
+    write("Result is small")
+end if

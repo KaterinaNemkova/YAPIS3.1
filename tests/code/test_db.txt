@@ -1,0 +1,13 @@
+db = create_table("Employees")
+
+add_column(db, "ID", "int")
+add_column(db, "Name", "string")
+add_column(db, "Salary", "float")
+
+insert_row(db, {1, "Ivan", 50000.5})
+insert_row(db, {2, "Petr", 45000.0})
+insert_row(db, {3, "Maria", 60000.0})
+
+write("Database created successfully.")
+
+print_table(db)

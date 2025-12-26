@@ -1,0 +1,9 @@
+x = 10
+y = 20
+res = x + y
+write(res)
+
+msg = "Hello LLVM"
+write(msg)
+
+db = create_table("MyTable")

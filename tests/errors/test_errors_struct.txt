@@ -1,0 +1,19 @@
+struct User is
+    username : string
+
+    method login()
+        write("Logging in...")
+
+        if self.username == "" :
+            write("Error: empty name")
+            // ОШИБКА 1: Забыли 'end if'
+            return
+
+        write("Success")
+    // ОШИБКА 2: Из-за забытого 'end if' парсер может запутаться здесь
+    end method
+
+// ОШИБКА 3: Метод объявлен вне структуры (наша грамматика разрешает только sub снаружи)
+method orphanMethod()
+    write("I have no home")
+end method

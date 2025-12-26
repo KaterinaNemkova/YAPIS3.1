@@ -1,0 +1,18 @@
+sub calculate_bonus(int salary)
+    bonus = 0
+
+    // СИНТАКСИЧЕСКАЯ ОШИБКА: Пропущено двоеточие ':' после условия
+    if salary > 50000
+        bonus = 10000
+    else :
+        bonus = 5000
+    end if
+
+    // СЕМАНТИЧЕСКАЯ ОШИБКА: Сложение числа и строки
+    // (Анализатор до нее не дойдет, пока не исправим двоеточие выше)
+    total = salary + " USD"
+
+    write("Total: ", total)
+end sub
+
+calculate_bonus(60000)
